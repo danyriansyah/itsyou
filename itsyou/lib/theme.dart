@@ -29,6 +29,12 @@ TextStyle secondaryTextStyle = GoogleFonts.montserrat(
   fontWeight: regular,
 );
 
+TextStyle decsPlatformTextStyle = GoogleFonts.montserrat(
+  color: primaryColor,
+  fontSize: 12,
+  fontWeight: regular,
+);
+
 TextStyle titleTextStyle = GoogleFonts.montserrat(
   color: primaryColor,
   fontSize: 18,

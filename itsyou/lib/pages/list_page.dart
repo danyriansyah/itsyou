@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itsyou/theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class listPage extends StatelessWidget {
   const listPage({Key? key}) : super(key: key);
@@ -37,15 +38,53 @@ class listPage extends StatelessWidget {
     );
   }
 
+  Widget platform(String imagePlatform, String decsPlatform, String url) {
+    return Column(
+      children: [
+        Container(
+          width: 100,
+          margin: EdgeInsets.only(bottom: 10),
+          padding: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: primaryColor),
+          ),
+          child: TextButton(
+            onPressed: () async {
+              await launch(url);
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(imagePlatform),
+                SizedBox(
+                  height: 14,
+                ),
+                Text(
+                  decsPlatform,
+                  style: decsPlatformTextStyle,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          backgroundColor: backgroundColor,
-          body: Column(
+      home: Scaffold(
+        backgroundColor: backgroundColor,
+        body: Container(
+          padding: EdgeInsets.all(30),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 20,
+              ),
               headerHome('Software Developer'),
               SizedBox(
                 height: 20,
@@ -58,6 +97,42 @@ class listPage extends StatelessWidget {
                 height: 20,
               ),
               platformHeader('Software Developer'),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  platform(
+                      'assets/logo.png', 'Flutter Dev', 'https://flutter.dev'),
+                  platform(
+                      'assets/logo.png', 'BWA', 'https://buildwithangga.com'),
+                  platform(
+                      'assets/logo.png', 'YouTube', 'https://www.youtube.com'),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                  platform('assets/logo.png', 'YouTube',
+                      'https://www.instagram.com/azimm_.8/'),
+                ],
+              ),
             ],
           ),
         ),

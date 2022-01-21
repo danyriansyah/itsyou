@@ -15,7 +15,7 @@ class _SignInState extends State<SignIn> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(
-          top: 100,
+          top: 70,
           left: 30,
           right: 30,
         ),
@@ -31,10 +31,10 @@ class _SignInState extends State<SignIn> {
             SizedBox(
               height: 10,
             ),
-            Text(
-              'Buat Username',
-              style: primaryTextStyle,
-            ),
+            // Text(
+            //   'Buat Username',
+            //   style: primaryTextStyle,
+            // ),
             SizedBox(
               height: 20,
             ),
@@ -63,7 +63,6 @@ class _SignInState extends State<SignIn> {
         width: 90,
         height: 90,
         padding: EdgeInsets.all(5),
-        margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
@@ -127,30 +126,36 @@ class _SignInState extends State<SignIn> {
       home: Scaffold(
         backgroundColor: backgroundColor,
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              header(),
-              Row(
-                children: [
-                  option(0, 'Bertualang ', 'assets/logo.png'),
-                  option(1, 'Bermain Game', 'assets/logo.png'),
-                  option(2, 'Menggambar', 'assets/logo.png'),
-                  option(3, 'Bernyanyi', 'assets/logo.png'),
-                ],
-              ),
-              Row(
-                children: [
-                  option(4, 'Bertualang ', 'assets/logo.png'),
-                  option(5, 'Bermain Game', 'assets/logo.png'),
-                  option(6, 'Menggambar', 'assets/logo.png'),
-                  option(7, 'Bernyanyi', 'assets/logo.png'),
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              selectedIndex == -1 ? SizedBox() : saveButton(),
-            ],
+          child: Container(
+            padding: EdgeInsets.all(30),
+            child: Column(
+              children: [
+                header(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    option(0, 'Bertualang ', 'assets/logo.png'),
+                    option(1, 'Bermain Game', 'assets/logo.png'),
+                    option(2, 'Menggambar', 'assets/logo.png'),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    option(4, 'Bertualang ', 'assets/logo.png'),
+                    option(5, 'Bermain Game', 'assets/logo.png'),
+                    option(6, 'Menggambar', 'assets/logo.png'),
+                  ],
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                selectedIndex == -1 ? SizedBox() : saveButton(),
+              ],
+            ),
           ),
         ),
       ),
