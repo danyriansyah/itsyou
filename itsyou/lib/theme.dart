@@ -28,3 +28,21 @@ TextStyle secondaryTextStyle = GoogleFonts.montserrat(
   fontSize: 12,
   fontWeight: regular,
 );
+
+TextStyle titleTextStyle = GoogleFonts.montserrat(
+  color: primaryColor,
+  fontSize: 18,
+  fontWeight: regular,
+);
+
+TextStyle titleBoldStyle = GoogleFonts.montserrat(
+  color: primaryColor,
+  fontSize: 18,
+  fontWeight: bold,
+);
+
+TextStyle buttonTextStyle = GoogleFonts.montserrat(
+  color: primaryColor,
+  fontSize: 24,
+  fontWeight: regular,
+);

@@ -51,6 +51,7 @@ class _SignInState extends State<SignIn> {
   Widget option(
     int index,
     String text,
+    String image,
   ) {
     return GestureDetector(
       onTap: () {
@@ -71,6 +72,14 @@ class _SignInState extends State<SignIn> {
         ),
         child: Column(
           children: [
+            Image.asset(
+              image,
+              width: 50,
+              height: 50,
+            ),
+            SizedBox(
+              height: 5,
+            ),
             Text(
               text,
               style: decsTextStyle,
@@ -81,23 +90,68 @@ class _SignInState extends State<SignIn> {
     );
   }
 
+  Widget saveButton() {
+    return Column(
+      children: [
+        Container(
+          width: 315,
+          height: 62,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(200),
+            border: Border.all(
+              color: primaryColor,
+            ),
+          ),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(200),
+              ),
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/home-page');
+            },
+            child: Text(
+              'Simpan',
+              style: buttonTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: backgroundColor,
-        body: Column(
-          children: [
-            header(),
-            Row(
-              children: [
-                option(0, 'Bertualang '),
-                option(1, 'Bermain Game'),
-                option(2, 'Menggambar'),
-                option(3, 'Bernyanyi'),
-              ],
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              header(),
+              Row(
+                children: [
+                  option(0, 'Bertualang ', 'assets/logo.png'),
+                  option(1, 'Bermain Game', 'assets/logo.png'),
+                  option(2, 'Menggambar', 'assets/logo.png'),
+                  option(3, 'Bernyanyi', 'assets/logo.png'),
+                ],
+              ),
+              Row(
+                children: [
+                  option(4, 'Bertualang ', 'assets/logo.png'),
+                  option(5, 'Bermain Game', 'assets/logo.png'),
+                  option(6, 'Menggambar', 'assets/logo.png'),
+                  option(7, 'Bernyanyi', 'assets/logo.png'),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              selectedIndex == -1 ? SizedBox() : saveButton(),
+            ],
+          ),
         ),
       ),
     );
