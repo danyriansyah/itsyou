@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:itsyou/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class listPage extends StatefulWidget {
+class appPage extends StatefulWidget {
   @override
-  State<listPage> createState() => _listPageState();
+  State<appPage> createState() => _listPageState();
 }
 
-class _listPageState extends State<listPage> {
+class _listPageState extends State<appPage> {
   // const listPage({Key? key}) : super(key: key);
 
   Widget headerHome(String jobTitle) {
@@ -22,7 +22,7 @@ class _listPageState extends State<listPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Kamu ingin menjadi,',
+              'Kamu memilih aplikasi,',
               style: titleTextStyle,
             ),
             Text(
@@ -47,11 +47,11 @@ class _listPageState extends State<listPage> {
     );
   }
 
-  List quotes = [
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
+  List images = [
+    'assets/logo.png',
+    'assets/logo.png',
+    'assets/logo.png',
+    'assets/logo.png',
   ];
 
   int currentIndex = 0;
@@ -62,35 +62,17 @@ class _listPageState extends State<listPage> {
     return Column(
       children: [
         CarouselSlider(
-          items: quotes
+          items: images
               .map(
-                (Quote) => Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: primaryColor),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        Quote,
-                        style: primaryTextStyle,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'By: ',
-                        style: primaryTextStyle,
-                      )
-                    ],
-                  ),
+                (Quote) => Image.asset(
+                  Quote,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
                 ),
               )
               .toList(),
           options: CarouselOptions(
-            height: 84,
+            height: 150,
             viewportFraction: 1,
             initialPage: 0,
             onPageChanged: (index, reason) {
@@ -105,7 +87,7 @@ class _listPageState extends State<listPage> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: quotes.map((e) {
+          children: images.map((e) {
             index++;
             return indicator(index);
           }).toList(),
@@ -114,54 +96,11 @@ class _listPageState extends State<listPage> {
     );
   }
 
-  Widget aplikasi(String appName) {
-    return TextButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/app-page');
-      },
-      child: Image.asset(
-        appName,
-        height: 54,
-      ),
-    );
-  }
-
-  Widget aplikasiSlider() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Ini aplikasi yang harus kamu miliki:',
-            style: primaryTextStyle,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                  aplikasi('assets/logo.png'),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget platformHeader(String jobTitle) {
+  Widget platformHeader(String appName, String jobTitle) {
     return Text(
-      'Kamu bisa belajar menjadi ' +
+      'Kamu bisa mempelajari ' +
+          appName +
+          ' untuk menjadi ' +
           jobTitle +
           ' melalui platform berikut ini:',
       style: primaryTextStyle,
@@ -216,7 +155,7 @@ class _listPageState extends State<listPage> {
                 SizedBox(
                   height: 20,
                 ),
-                headerHome('Software Developer'),
+                headerHome('Visual Studio Code'),
                 SizedBox(
                   height: 20,
                 ),
@@ -224,11 +163,7 @@ class _listPageState extends State<listPage> {
                 SizedBox(
                   height: 20,
                 ),
-                aplikasiSlider(),
-                SizedBox(
-                  height: 20,
-                ),
-                platformHeader('Software Developer'),
+                platformHeader('Visual Studio Code', 'Software Developer'),
                 SizedBox(
                   height: 20,
                 ),

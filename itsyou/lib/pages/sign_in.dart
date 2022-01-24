@@ -15,7 +15,7 @@ class _SignInState extends State<SignIn> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(
-          top: 70,
+          top: 30,
           left: 30,
           right: 30,
         ),
@@ -31,19 +31,46 @@ class _SignInState extends State<SignIn> {
             SizedBox(
               height: 10,
             ),
-            // Text(
-            //   'Buat Username',
-            //   style: primaryTextStyle,
-            // ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Pilih Bidang Kesukaan Mu',
-              style: primaryTextStyle,
-            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget usernameInput() {
+    return Container(
+      child: Column(
+        children: [
+          Text(
+            'Buat Username',
+            style: primaryTextStyle,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 45,
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: primaryColor),
+            ),
+            child: Center(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      textAlign: TextAlign.center,
+                      style: inputTextStyle,
+                      decoration: InputDecoration.collapsed(
+                          hintText: 'username', hintStyle: secondaryTextStyle),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -131,6 +158,17 @@ class _SignInState extends State<SignIn> {
             child: Column(
               children: [
                 header(),
+                usernameInput(),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Pilih Bidang Kesukaan Mu',
+                  style: primaryTextStyle,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

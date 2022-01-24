@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itsyou/pages/app_page.dart';
 import 'package:itsyou/pages/home.dart';
 import 'package:itsyou/pages/list_page.dart';
 import 'package:itsyou/pages/sign_in.dart';
@@ -19,6 +20,7 @@ class ItsYou extends StatelessWidget {
         '/sign-in': (context) => SignIn(),
         '/home-page': (contex) => homePage(),
         '/list-page': (context) => listPage(),
+        '/app-page': (context) => appPage(),
       },
     );
   }
