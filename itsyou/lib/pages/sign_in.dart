@@ -163,7 +163,7 @@ class _SignInState extends State<SignIn> {
                   height: 20,
                 ),
                 Text(
-                  'Pilih Bidang Kesukaan Mu',
+                  'Pilih Role Kamu',
                   style: primaryTextStyle,
                 ),
                 SizedBox(
@@ -172,9 +172,9 @@ class _SignInState extends State<SignIn> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    option(0, 'Bertualang ', 'assets/logo.png'),
-                    option(1, 'Bermain Game', 'assets/logo.png'),
-                    option(2, 'Menggambar', 'assets/logo.png'),
+                    option(0, 'Investor ', 'assets/logo.png'),
+                    option(1, 'Software Dev', 'assets/logo.png'),
+                    option(2, 'Web Dev', 'assets/logo.png'),
                   ],
                 ),
                 SizedBox(
@@ -183,9 +183,9 @@ class _SignInState extends State<SignIn> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    option(4, 'Bertualang ', 'assets/logo.png'),
-                    option(5, 'Bermain Game', 'assets/logo.png'),
-                    option(6, 'Menggambar', 'assets/logo.png'),
+                    option(4, 'UI Designer ', 'assets/logo.png'),
+                    option(5, 'UX Designer', 'assets/logo.png'),
+                    option(6, 'Backend Dev', 'assets/logo.png'),
                   ],
                 ),
                 SizedBox(

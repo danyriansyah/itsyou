@@ -47,11 +47,11 @@ class _listPageState extends State<appPage> {
     );
   }
 
-  List images = [
-    'assets/logo.png',
-    'assets/logo.png',
-    'assets/logo.png',
-    'assets/logo.png',
+  List quotes = [
+    'Real programmers can write assembly code in any language.',
+    'Real programmers can write assembly code in any language.',
+    'Real programmers can write assembly code in any language.',
+    'Real programmers can write assembly code in any language.',
   ];
 
   int currentIndex = 0;
@@ -62,17 +62,35 @@ class _listPageState extends State<appPage> {
     return Column(
       children: [
         CarouselSlider(
-          items: images
+          items: quotes
               .map(
-                (Quote) => Image.asset(
-                  Quote,
-                  width: MediaQuery.of(context).size.width,
-                  fit: BoxFit.cover,
+                (Quote) => Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: primaryColor),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        Quote,
+                        style: primaryTextStyle,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'By: ',
+                        style: primaryTextStyle,
+                      )
+                    ],
+                  ),
                 ),
               )
               .toList(),
           options: CarouselOptions(
-            height: 150,
+            height: 84,
             viewportFraction: 1,
             initialPage: 0,
             onPageChanged: (index, reason) {
@@ -87,7 +105,7 @@ class _listPageState extends State<appPage> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: images.map((e) {
+          children: quotes.map((e) {
             index++;
             return indicator(index);
           }).toList(),

@@ -9,7 +9,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-  Widget headerHome(String name) {
+  Widget headerHome(String name, String role) {
     return Row(
       children: [
         Image.asset(
@@ -20,11 +20,11 @@ class _homePageState extends State<homePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hai,',
+              'Hai, i\'m ' + name,
               style: titleTextStyle,
             ),
             Text(
-              name,
+              role,
               style: titleTextStyle,
             )
           ],
@@ -90,12 +90,12 @@ class _homePageState extends State<homePage> {
                 SizedBox(
                   height: 20,
                 ),
-                headerHome('Dany'),
+                headerHome('Dany', 'Software Developer'),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  'Kamu ingin menjadi apa?',
+                  'My Work',
                   style: titleTextStyle,
                 ),
                 SizedBox(

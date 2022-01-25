@@ -22,7 +22,8 @@ class _listPageState extends State<listPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Kamu ingin menjadi,',
+              // 'Kamu sedang membuka,',
+              'You are opening,',
               style: titleTextStyle,
             ),
             Text(
@@ -47,11 +48,11 @@ class _listPageState extends State<listPage> {
     );
   }
 
-  List quotes = [
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
-    'Real programmers can write assembly code in any language.',
+  List images = [
+    'assets/logo.png',
+    'assets/logo.png',
+    'assets/logo.png',
+    'assets/logo.png',
   ];
 
   int currentIndex = 0;
@@ -62,35 +63,17 @@ class _listPageState extends State<listPage> {
     return Column(
       children: [
         CarouselSlider(
-          items: quotes
+          items: images
               .map(
-                (Quote) => Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: primaryColor),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        Quote,
-                        style: primaryTextStyle,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'By: ',
-                        style: primaryTextStyle,
-                      )
-                    ],
-                  ),
+                (Quote) => Image.asset(
+                  Quote,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
                 ),
               )
               .toList(),
           options: CarouselOptions(
-            height: 84,
+            height: 150,
             viewportFraction: 1,
             initialPage: 0,
             onPageChanged: (index, reason) {
@@ -105,7 +88,7 @@ class _listPageState extends State<listPage> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: quotes.map((e) {
+          children: images.map((e) {
             index++;
             return indicator(index);
           }).toList(),
@@ -132,7 +115,8 @@ class _listPageState extends State<listPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Ini aplikasi yang harus kamu miliki:',
+            // 'Teknologi yang digunakan:',
+            'Tech that i used:',
             style: primaryTextStyle,
           ),
           SizedBox(
@@ -161,9 +145,8 @@ class _listPageState extends State<listPage> {
 
   Widget platformHeader(String jobTitle) {
     return Text(
-      'Kamu bisa belajar menjadi ' +
-          jobTitle +
-          ' melalui platform berikut ini:',
+      // 'Lihat bagaimana saya membuat ' + jobTitle + ' di bawah ini:',
+      'Look how i made ' + jobTitle + ' below:',
       style: primaryTextStyle,
     );
   }
