@@ -149,50 +149,55 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: backgroundColor,
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(30),
-            child: Column(
-              children: [
-                header(),
-                usernameInput(),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Pilih Role Kamu',
-                  style: primaryTextStyle,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    option(0, 'Investor ', 'assets/logo.png'),
-                    option(1, 'Software Dev', 'assets/logo.png'),
-                    option(2, 'Web Dev', 'assets/logo.png'),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    option(4, 'UI Designer ', 'assets/logo.png'),
-                    option(5, 'UX Designer', 'assets/logo.png'),
-                    option(6, 'Backend Dev', 'assets/logo.png'),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                selectedIndex == -1 ? SizedBox() : saveButton(),
-              ],
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: MaterialApp(
+        home: Scaffold(
+          backgroundColor: backgroundColor,
+          body: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  header(),
+                  usernameInput(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Pilih Role Kamu',
+                    style: primaryTextStyle,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      option(0, 'Investor ', 'assets/logo.png'),
+                      option(1, 'Software Dev', 'assets/logo.png'),
+                      option(2, 'Web Dev', 'assets/logo.png'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      option(4, 'UI Designer ', 'assets/logo.png'),
+                      option(5, 'UX Designer', 'assets/logo.png'),
+                      option(6, 'Backend Dev', 'assets/logo.png'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  selectedIndex == -1 ? SizedBox() : saveButton(),
+                ],
+              ),
             ),
           ),
         ),

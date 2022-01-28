@@ -188,10 +188,10 @@ class _listPageState extends State<appPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    platform('assets/logo.png', 'Flutter Dev',
-                        'https://flutter.dev'),
                     platform(
-                        'assets/logo.png', 'BWA', 'https://buildwithangga.com'),
+                        'assets/logo.png', 'Install', 'https://flutter.dev'),
+                    platform('assets/logo.png', 'Reqier',
+                        'https://buildwithangga.com'),
                     platform('assets/logo.png', 'YouTube',
                         'https://www.youtube.com'),
                   ],
